@@ -56,4 +56,41 @@ dialogue_box.pack(pady=40)
 
 # main functions of da game
 
+def set_dialogue(text):
+    dialogue_box.config(text=text)
 
+def start_game():
+    global current_scene
+    current_scene = "room"
+    set_dialogue("you enter the sleepover and realize something feels off...")
+
+def make_button():
+    return tk.Button(
+        scene_frame,
+        text=text,
+        command=command,
+        font=("Helvetica", 12),
+        bg="#e8d7f1",
+        fg="#3b2f4a",
+        activebackground="#d6bfe6",
+        relief="flat",
+        padx=10,
+        pady=5
+    )
+
+# start button code
+
+start_btn = make_button("start sleepover", start_game)
+start_btn.pack(pady=10)
+
+# placeholder button (imma decide later)
+
+choice1 = make_button("look around", lambda: set_dialogue("the lights started flickering..."))
+choice2 = make_button("talk to friends", lambda: set_dialogue("everyone seems a bit off tonight"))
+
+choice1.pack(pady=5)
+choice2.pack(pady=5)
+
+# run gameee
+
+root.mainloop()
