@@ -32,7 +32,7 @@ subtitle = tk.Label(
     text="a soft and mysterious sleepover story game...",
     font = ("Helvetica", 14),
     bg="#f7eefc",
-    fg="6b5b7a"
+    fg="#6b5b7a"
 )
 
 subtitle.pack(pady=10)
@@ -64,7 +64,7 @@ def start_game():
     current_scene = "room"
     set_dialogue("you enter the sleepover and realize something feels off...")
 
-def make_button():
+def make_button(text, command):
     return tk.Button(
         scene_frame,
         text=text,
