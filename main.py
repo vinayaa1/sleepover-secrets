@@ -134,7 +134,7 @@ def suspicious_scene():
     )
     text.pack(pady=40)
 
-    back = make_button("keep watching 👁️", room_scene)
+    back = make_button("keep watching", room_scene)
     back.pack(pady=10)
 
 intro_scene()
