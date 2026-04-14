@@ -62,23 +62,22 @@ def intro_scene():
 def room_scene():
     clear_screen()
 
-    text = tk.Label(
-        scene_frame,
-        text="you arrive at the sleepover...\nsomething feels a little off.",
-        font=("Helvetica", 14),
-        bg="#ffffff",
-        fg="#3b2f4a",
-        wraplength=500,
-        padx=20,
-        pady=20
+    show_character("assets/friend.png")
+
+    dialogue = create_dialogue_box(scene_frame)
+
+    type_text(
+        dialogue,
+        "you walk into the sleepover...\n"
+        "fairy lights glow softly, snacks everywhere\n"
+        "but something feels... off."
     )
-    text.pack(pady=40)
 
     btn1 = make_button("look around", look_scene)
-    btn1.pack(pady=10)
+    btn1.pack(pady=5)
 
     btn2 = make_button("talk to your friend", talk_scene)
-    btn2.pack(pady=10)
+    btn2.pack(pady=5)
 
 def look_scene():
     clear_screen()
