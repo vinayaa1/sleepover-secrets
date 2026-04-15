@@ -97,6 +97,37 @@ def look_scene():
     back = make_button("go back", room_scene)
     back.pack(pady=10)
 
+def show_character(image_path):
+    img = tk.PhotoImage(file=image_path)
+
+    label = tk.Label(scene_frame, image=img, bg="#f7eefc")
+    label.image = img
+    label.pack(pady=10)
+
+def create_dialogue_box(parent, text=""):
+    frame = tk.Frame(parent, bg="#f7eefc")
+    frame.pack(side="bottom", fill="x", pady=20)
+
+    label = tk.Label(
+        frame,
+        text=text,
+        font=("Helvetica", 14),
+        bg="#ffffff",
+        fg="#3b2f4a",
+        wraplength=600,
+        padx=20,
+        pady=20,
+        justify="left"
+    )
+    label.pack()
+
+    return label
+
+def type_text(label, text, i=0):
+    if i <= len(text):
+        label.config(text=text[:i])
+        root.after(25, lambda: type_text(label, text, i + 1))
+
 def talk_scene():
     clear_screen()
 
