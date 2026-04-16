@@ -19,6 +19,9 @@ current_scene = "introduction."
 scene_frame = tk.Frame(root, bg="#f7eefc")
 scene_frame.pack(fill="both", expand=True)
 
+game_state = {
+    "suspicion": 0
+}
 
 def make_button(text, command):
     return tk.Button(
@@ -82,17 +85,15 @@ def room_scene():
 def look_scene():
     clear_screen()
 
-    text = tk.Label(
-        scene_frame,
-        text="the lights flicker slightly...\nthat’s weird.",
-        font=("Helvetica", 14),
-        bg="#ffffff",
-        fg="#3b2f4a",
-        wraplength=500,
-        padx=20,
-        pady=20
+    game_state["suspicion"] += 1
+
+    dialogue = create_dialogue_box(scene_frame)
+
+    type_text(
+        dialogue,
+        "the lights flicker again...\n"
+        "you feel like you're being watched."
     )
-    text.pack(pady=40)
 
     back = make_button("go back", room_scene)
     back.pack(pady=10)
@@ -168,6 +169,11 @@ def suspicious_scene():
     back.pack(pady=10)
 
 intro_scene()
+
+if game_state["suspicion"] > 2:
+    creepy_ending()
+else:
+    normal_ending()
 
 # run game
 
