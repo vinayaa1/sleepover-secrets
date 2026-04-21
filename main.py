@@ -1,6 +1,17 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
+import os
+import sys
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 # game window setup
 
 root = tk.Tk()
@@ -79,7 +90,7 @@ def type_text(label, text, i=0):
         label.config(text=text[:i])
         root.after(25, lambda: type_text(label, text, i + 1))
 
-# ---------------- scenes ----------------
+# scenes
 
 def intro_scene():
     clear_screen()
@@ -157,7 +168,7 @@ def shadow_scene():
 def talk_scene():
     clear_screen()
 
-    show_character("assets/friend.png")
+    show_character(resource_path("assets/friend.png"))
 
     dialogue = create_dialogue_box()
     type_text(dialogue,
@@ -173,7 +184,7 @@ def suspicious_scene():
     clear_screen()
     game_state["suspicion"] += 1
 
-    show_character("assets/friend.png")
+    show_character(resource_path("assets/friend.png"))
 
     dialogue = create_dialogue_box()
     type_text(dialogue,
@@ -200,7 +211,7 @@ def ignore_scene():
 def truth_scene():
     clear_screen()
 
-    show_character("assets/friend.png")
+    show_character(resource_path("assets/friend.png"))
 
     dialogue = create_dialogue_box()
 
