@@ -1,5 +1,7 @@
 # sleepover secrets
 
+# link to play: https://vinayaa1.github.io/sleeepover-secrets/
+
 a browser-based interactive story game about a sleepover that slowly turns unsettling.
 
 ## about the game
